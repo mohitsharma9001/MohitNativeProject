@@ -8,6 +8,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screen/Home";
 import BottomTabNav from "./BottomTabNav";
 import MenuScreen from "../screen/Menu";
+import YoutubeScreen from "../screen/youtube/Youtube";
+import NewsScreen from "../screen/news/News";
 
 
 const Stack = createStackNavigator()
@@ -16,14 +18,22 @@ const MainStackNavigation = () => {
 <NavigationContainer>
     <Stack.Navigator
       initialRouteName={"Home"}
-      headerMode="none"
-      screenOptions={{
-          gestureEnabled: true,
-  
+        screenOptions={{
+        headerStyle: {
+          backgroundColor: "#00B386",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerShown: false,
+        // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
   <Stack.Screen name="Home" component={BottomTabNav} />
   <Stack.Screen name="menu" component={MenuScreen} />
+  <Stack.Screen name="youtube" component={YoutubeScreen} />
+  <Stack.Screen name="news" component={NewsScreen} />
 
   </Stack.Navigator>
   </NavigationContainer>
