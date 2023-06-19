@@ -11,6 +11,7 @@ import MenuScreen from "../screen/Menu";
 import YoutubeScreen from "../screen/youtube/Youtube";
 import NewsScreen from "../screen/news/News";
 import YouTubePlayVideo from "../screen/youtube/YouTubePlayVideo";
+import NewsDetails from "../screen/news/NewsDetails";
 
 
 const Stack = createStackNavigator()
@@ -30,6 +31,7 @@ const MainStackNavigation = () => {
   <Stack.Screen name="youtube" component={YoutubeScreen} />
   <Stack.Screen name="news" component={NewsScreen} />
   <Stack.Screen name="youtubePlay" component={YouTubePlayVideo} />
+  <Stack.Screen name="newsDetails" component={NewsDetails} />
 
   </Stack.Navigator>
   </NavigationContainer>

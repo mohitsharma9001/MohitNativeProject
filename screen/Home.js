@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
   const [allProduct,setallProduct] = useState([])
+  // console.log(allProduct)
   useEffect(()=>{
 fetch(`https://fakestoreapi.com/products`)
 .then((res)=>res.json())
