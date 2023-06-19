@@ -46,7 +46,9 @@ const YoutubeScreen = () => {
           title={item.snippet.title}
           channalTitle={item.snippet.channelTitle}
           // thumbnail={item.channelThumbnail}
-          onPress={()=>navigation.navigate("youtubePlay")}
+          onPress={()=>navigation.navigate("youtubePlay",{
+             item : item.id
+          })}
           />
         )}
       />
