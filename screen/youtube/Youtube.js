@@ -8,6 +8,8 @@ import { request } from "../../Utils/Api";
 import { FlatList } from "react-native";
 import CustomCard from "../../components/CustomCard";
 import YoutubeCard from "../../components/youtube/YoutubeCard";
+import {shortenNumber} from "../../Utils/Utils";
+import moment from "moment/moment";
 
 const YoutubeScreen = () => {
   const navigation = useNavigation();
@@ -18,7 +20,7 @@ const YoutubeScreen = () => {
   useEffect(()=>{
     fetch(video_http + new URLSearchParams({
       key: "AIzaSyAMjU5KvjETeycpR-3F9lfx3R6BEl_z6GA",
-      part: 'snippet',
+      part: 'snippet,statistics',
       chart: 'mostPopular',
       maxResults: 50,
       regionCode: 'IN'
@@ -39,15 +41,20 @@ const YoutubeScreen = () => {
        <FlatList
         data={youTubeData}
         keyExtractor={item => item.id}
-        
+        // views
+        // uplodeTime{moment(publishedAt).fromNow()}
         renderItem={({item}) => (
           <YoutubeCard
           image={item.snippet.thumbnails.high.url}
           title={item.snippet.title}
           channalTitle={item.snippet.channelTitle}
-          // thumbnail={item.channelThumbnail}
+          views={shortenNumber(item.statistics.viewCount) + " Views"}
+          uplodeTime={moment.utc(item.publishedAt).local().startOf('seconds').fromNow()}
           onPress={()=>navigation.navigate("youtubePlay",{
-             item : item.id
+             item : item.id,
+             title : item.snippet.title,
+             channelTitle : item.snippet.channelTitle,
+             views : shortenNumber(item.statistics.viewCount) + " Views"
           })}
           />
         )}
