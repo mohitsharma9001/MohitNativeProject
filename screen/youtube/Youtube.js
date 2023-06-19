@@ -13,7 +13,7 @@ const YoutubeScreen = () => {
   const navigation = useNavigation();
   const [youTubeData,setYouTubeData] = useState([])
 
-  // console.log(youTubeData.channelThumbnail)
+  // console.log(youTubeData)
   let video_http = "https://www.googleapis.com/youtube/v3/videos?";
   useEffect(()=>{
     fetch(video_http + new URLSearchParams({

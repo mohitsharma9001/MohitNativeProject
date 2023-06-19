@@ -20,13 +20,7 @@ const MainStackNavigation = () => {
     <Stack.Navigator
       initialRouteName={"Home"}
         screenOptions={{
-        headerStyle: {
-          backgroundColor: "#00B386",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
+    
         headerShown: false,
         // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
