@@ -5,21 +5,25 @@ import { useNavigation } from "@react-navigation/native";
 import NewsCard from "../../components/news/NewsCard";
 import CommonMenuHeader from "../../components/CommonMenuHeader";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import Loader from "../../components/Loader";
 //nyt api 6XAKGAGGnAwZMgfjrEHA8ACDxqG4X7jM  https://api.nytimes.com/svc/topstories/v2/world.json?api-key=yourkey
 // dbb3bcdec9f548f28416879f4a5b0dd5 -news api key
 const NewsScreen = () => {
   const navigation = useNavigation();
   const [newsData, setNewsData] = useState([]);
-  console.log(newsData);
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
+    setLoading(true)
     fetch(
       `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=dbb3bcdec9f548f28416879f4a5b0dd5`
     )
       .then((res) => res.json())
-      .then((res) => setNewsData(res.articles));
+      .then((res) => setNewsData(res.articles))
+      .finally(()=>setLoading(false))
   }, []);
   return (
     <View>
+      <Loader visible={loading}/>
       <CommonMenuHeader
        icon1={<Ionicons name="md-newspaper-outline" size={24} color="#1F415B" />}
         icon3={"bell-outline"}

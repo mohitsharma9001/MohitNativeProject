@@ -3,19 +3,23 @@ import React, { useEffect, useState } from 'react'
 import CustomCard from '../components/CustomCard'
 import SearchBar from '../components/SearchBar'
 import { useNavigation } from '@react-navigation/native'
+import Loader from '../components/Loader'
 
 const HomeScreen = () => {
   const [allProduct,setallProduct] = useState([])
-  // console.log(allProduct)
+  const [loading,setLoading] = useState(false)
   useEffect(()=>{
+    setLoading(true)
 fetch(`https://fakestoreapi.com/products`)
 .then((res)=>res.json())
 .then((res)=>setallProduct(res))
+.catch((res)=>console.log("data is not find"))
+.finally(()=>setLoading(false))
   },[])
 const navigation = useNavigation()
   return (
     <>
-
+       <Loader visible={loading}/>
         <StatusBar barStyle={"default"}/>
         <SearchBar/>
         <View style={{flex : 1,backgroundColor : "#fff" }}>

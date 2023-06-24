@@ -12,15 +12,17 @@ import {shortenNumber} from "../../Utils/Utils";
 import moment from "moment/moment";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet } from "react-native";
+import Loader from "../../components/Loader";
 
 const YoutubeScreen = () => {
   const navigation = useNavigation();
   const [youTubeData,setYouTubeData] = useState([])
   const [showSearch,setShowSearch] = useState(false)
-
+  const [loading,setLoading] = useState(false)
   // console.log(youTubeData)
   let video_http = "https://www.googleapis.com/youtube/v3/videos?";
   useEffect(()=>{
+    setLoading(true)
     fetch(video_http + new URLSearchParams({
       key: "AIzaSyAMjU5KvjETeycpR-3F9lfx3R6BEl_z6GA",
       part: 'snippet,statistics',
@@ -30,9 +32,11 @@ const YoutubeScreen = () => {
   }))
     .then((res)=>res.json())
     .then((res)=>setYouTubeData(res.items))
+    .finally(()=>setLoading(false))
   },[])
   return (
     <>
+     <Loader visible={loading}/>
       <CommonMenuHeader
         icon1={<FontAwesome name="youtube" size={24} color="red" />}
         icon2={<MaterialIcons name="cast" size={24} color="black" />}
