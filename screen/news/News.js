@@ -23,7 +23,15 @@ const NewsScreen = () => {
       <CommonMenuHeader
        icon1={<Ionicons name="md-newspaper-outline" size={24} color="#1F415B" />}
         icon3={"bell-outline"}
-        icon4={"magnify"}
+        icon4={<Ionicons
+          name="search"
+          size={22}
+          color
+          style={{
+            color: "black",
+          }}
+    
+        />}
         icon5={"account-circle-outline"}
         onPress={() => navigation.goBack()}
       />

@@ -5,13 +5,12 @@ import {
 } from "@react-navigation/stack";
 
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "../screen/Home";
-import BottomTabNav from "./BottomTabNav";
 import MenuScreen from "../screen/Menu";
 import YoutubeScreen from "../screen/youtube/Youtube";
 import NewsScreen from "../screen/news/News";
 import YouTubePlayVideo from "../screen/youtube/YouTubePlayVideo";
 import NewsDetails from "../screen/news/NewsDetails";
+import BottomTabs from "./BottomTab";
 
 
 const Stack = createStackNavigator()
@@ -26,7 +25,7 @@ const MainStackNavigation = () => {
         // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
-  <Stack.Screen name="home" component={BottomTabNav} />
+  <Stack.Screen name="home" component={BottomTabs} />
   <Stack.Screen name="menu" component={MenuScreen} />
   <Stack.Screen name="youtube" component={YoutubeScreen} />
   <Stack.Screen name="news" component={NewsScreen} />

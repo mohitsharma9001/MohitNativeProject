@@ -10,7 +10,7 @@ const CommonMenuHeader = (props) => {
     <Appbar.Content />
     <Appbar.Action icon={()=>props.icon2} />
     <Appbar.Action icon={props.icon3} />
-    <Appbar.Action icon={props.icon4} />
+    <Appbar.Action icon={()=>props.icon4} />
     <Appbar.Action icon={props.icon5}  />
   </Appbar.Header>
   );
