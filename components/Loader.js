@@ -17,20 +17,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const loaderColor = [
-	'red',
-	'tomato',
-	'orange',
-	'yellow',
-	'teal',
-	'green',
-	'cyan ',
-	'royalblue',
-	'blue',
-	'purple',
-	'pink',
-	'red'
-]
+
 
 const Loader = (props) => {
 
@@ -52,7 +39,7 @@ const Loader = (props) => {
 		>
 			<View style={styles.modalContainer}>
 				<View style={styles.modalBody}>
-					<ActivityIndicator size="large" color={loaderColor[value]} />
+					<ActivityIndicator size="large" color={"red"} />
 				</View>
 			</View>
 		</Modal>

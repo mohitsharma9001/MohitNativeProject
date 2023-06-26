@@ -5,17 +5,24 @@ import { Image } from 'react-native'
 
 const YoutubeCard = (props) => {
   return (
-    <Card style={{marginVertical : 5,marginHorizontal : 10}} onPress={props.onPress}>
-    <Card.Cover source={{ uri: props.image }} />
-    <Card.Content>
+    
+    <Card style={{borderRadius : 0}} onPress={props.onPress}>
+    <Image
+      
+        source={{
+          uri: props.image,
+        }}
+        style={{height : 200,width : "100%"}}
+      />
+    <View>
       {/* <Image source={{ uri: props.thumbnail }} style={{height : 40,width : 40,borderRadius : 50}}/> */}
-      <Text variant="titleSmall" style={{color : "#1F415B",fontWeight : "400",marginTop : 10}}>{props.title}</Text>
-      <View style={{display : "flex",flexDirection : "row",marginTop : 5}}>
+      <Text variant="titleSmall" style={{color : "#1F415B",fontWeight : "400",marginTop : 5}}>{props.title}</Text>
+      <View style={{display : "flex",flexDirection : "row",marginVertical : 5}}>
       <Text  style={{color : "#1F415B",fontWeight : "500",fontSize : 12,}}>{props.channalTitle}</Text>
       <Text  style={{color : "#1F415B",fontWeight : "500",fontSize : 12,left : 8}}>{props.views}</Text>
       <Text  style={{color : "#1F415B",fontWeight : "500",fontSize : 12,left : 16}}>{props.uplodeTime}</Text>
       </View>
-    </Card.Content>
+    </View>
   </Card>
   )
 }

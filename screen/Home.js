@@ -4,6 +4,7 @@ import CustomCard from '../components/CustomCard'
 import SearchBar from '../components/SearchBar'
 import { useNavigation } from '@react-navigation/native'
 import Loader from '../components/Loader'
+import FloatingButton from '../components/FlotingButton'
 
 const HomeScreen = () => {
   const [allProduct,setallProduct] = useState([])
@@ -38,6 +39,7 @@ const navigation = useNavigation()
           />
         )}
       />
+        <FloatingButton  icon={"plus-circle-outline"} />
      </View>
     
    
