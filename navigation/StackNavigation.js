@@ -13,6 +13,7 @@ import NewsDetails from "../screen/news/NewsDetails";
 import BottomTabs from "./BottomTab";
 
 
+
 const Stack = createStackNavigator()
 const MainStackNavigation = () => {
   return (  
@@ -31,6 +32,7 @@ const MainStackNavigation = () => {
   <Stack.Screen name="news" component={NewsScreen} />
   <Stack.Screen name="youtubePlay" component={YouTubePlayVideo} />
   <Stack.Screen name="newsDetails" component={NewsDetails} />
+
 
   </Stack.Navigator>
   </NavigationContainer>
