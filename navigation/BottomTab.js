@@ -6,20 +6,15 @@ import HomeScreen from "../screen/Home";
 import MenuScreen from "../screen/Menu";
 import ProfileScreen from "../screen/Profile";
 
-
-
-
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomTabs = () => {
-
   return (
     <Tab.Navigator
       initialRouteName="HomeScreen"
       shifting={false}
       sceneAnimationEnabled={true}
-     
-
+      barStyle={{ backgroundColor: "black", height: 70 }}
     >
       <Tab.Screen
         name="Home"
@@ -27,12 +22,12 @@ const BottomTabs = () => {
         options={{
           tabBarIcon: ({ focused, color }) => {
             return focused ? (
-              <MaterialCommunityIcons name="home" size={24} color={ color} />
+              <MaterialCommunityIcons name="home" size={24} color={color} />
             ) : (
               <MaterialCommunityIcons
                 name="home-outline"
                 size={24}
-                color={ color}
+                color={"white"}
               />
             );
           },
@@ -44,18 +39,17 @@ const BottomTabs = () => {
         options={{
           tabBarIcon: ({ focused, color }) => {
             return focused ? (
-              <MaterialCommunityIcons name="widgets" size={24} color={ color} />
+              <MaterialCommunityIcons name="widgets" size={24} color={color} />
             ) : (
               <MaterialCommunityIcons
                 name="widgets-outline"
                 size={24}
-                color={ color}
+                color={"white"}
               />
             );
           },
         }}
       />
-
 
       <Tab.Screen
         name="Profile"
@@ -66,13 +60,13 @@ const BottomTabs = () => {
               <MaterialCommunityIcons
                 name="account-circle"
                 size={24}
-                color={ color}
+                color={color}
               />
             ) : (
               <MaterialCommunityIcons
                 name="account-circle-outline"
                 size={24}
-                color={ color}
+                color={"white"}
               />
             );
           },

@@ -20,6 +20,14 @@ const MenuScreen = () => {
       name : "News",
       screen : "news",
       avatarUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGx0hitiF1_hm3rAtj032vtns6HD7lAbVW6Q&usqp=CAU",
+      
+    },
+    {
+      id : 3,
+      name : "Add Blogs",
+      screen : "addBlogs",
+      avatarUrl: "data:image/png;base64,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",
+      
     },
     
   ]
@@ -44,7 +52,7 @@ const navigation = useNavigation()
                     style={{ height: heightPercentageToDP(21), width: widthPercentageToDP(42), borderRadius: 15 }}
                     alt={item.name}
                   />
-                  <Text style={{textAlign : "center",fontSize : 16,fontWeight : "500"}}>{item.name}</Text>
+                  <Text style={{textAlign : "center",fontSize : 20,fontWeight : "500",color: "white"}}>{item.name}</Text>
                 </View>
                 </TouchableOpacity>
                
@@ -62,7 +70,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: windowWidth,
     height: windowHeight,
-    backgroundColor: "white",
+    backgroundColor: "black",
     flex: 1,
     // alignItems: "center",
   },
@@ -72,7 +80,7 @@ const styles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     flexDirection: "column",
-    backgroundColor: "white",
+    backgroundColor: "black",
     overflow: "hidden",
     justifyContent : "space-between"
     
