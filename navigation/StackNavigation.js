@@ -12,6 +12,7 @@ import YouTubePlayVideo from "../screen/youtube/YouTubePlayVideo";
 import NewsDetails from "../screen/news/NewsDetails";
 import BottomTabs from "./BottomTab";
 import AddBlogs from "../screen/blogs/AddBlogs";
+import LoginScreen from "../screen/login/LoginScreen";
 
 
 
@@ -34,6 +35,7 @@ const MainStackNavigation = () => {
   <Stack.Screen name="youtubePlay" component={YouTubePlayVideo} />
   <Stack.Screen name="newsDetails" component={NewsDetails} />
   <Stack.Screen name="addBlogs" component={AddBlogs} />
+  <Stack.Screen name="loginScreen" component={LoginScreen} />
 
 
   </Stack.Navigator>

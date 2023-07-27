@@ -1,14 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { View, TextInput, Button, Alert, StyleSheet } from "react-native";
+import { View, TextInput, Button, Alert, StyleSheet, ScrollView } from "react-native";
 
 const AddBlogs = () => {
   const [inputValue, setInputValue] = useState("");
+  const [description, setDescription] = useState("");
+const navigation = useNavigation()
   const addDataToServer = async () => {
-    console.warn("test")
-    const url = 'http://localhost:3000/users'; 
+    const url = 'http://192.168.25.175:3000/blogs'; 
     const dataToSend = [{
-      name: "mohit sharma",
-      age : 20
+      title: inputValue,
+      description : description
     }];
 
     try {
@@ -20,7 +22,8 @@ const AddBlogs = () => {
         body: JSON.stringify(dataToSend),
       });
 response =await response.json()
-console.warn(response)
+navigation.navigate("home")
+
     } catch (error) {
       console.error('POST Request Failed');
       console.error('Error:', error);
@@ -29,20 +32,25 @@ console.warn(response)
   };
   return (
     <>
-      <View>
+      <ScrollView>
         <TextInput
           placeholder="Title ...."
           style={styles.input}
           onChangeText={(text) => setInputValue(text)}
           value={inputValue}
         />
-        {/* <TextInput
+        <TextInput
         placeholder="Description ...."
         style={styles.inputDes}
         multiline={true}
-      /> */}
-        <Button title="Post Data" onPress={addDataToServer} />
-      </View>
+        onChangeText={(text) => setDescription(text)}
+        value={description}
+      />
+     
+      </ScrollView>
+       <View style={{margin : 12}}>
+        <Button title="Post Blog" onPress={addDataToServer} />
+        </View>
     </>
   );
 };
